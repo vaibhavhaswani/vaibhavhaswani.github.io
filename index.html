@@ -1,1 +1,558 @@
-Hello World
+<html class="scroll-smooth" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Vaibhav Haswani (vhx) - Full-stack AI Engineer &amp; Musician
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   html,
+    body {
+      background-color: #0a0a0f;
+      color: #cbd5e1;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #0ff;
+    }
+    .neon-text {
+      color: #0ff;
+      text-shadow:
+        0 0 5px #0ff,
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        0 0 40px #0ff;
+    }
+    .neon-magenta {
+      color: #ff00ff;
+      text-shadow:
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff;
+    }
+    .neon-cyan {
+      color: #00ffff;
+      text-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+    .tracking-wide-wider {
+      letter-spacing: 0.25em;
+    }
+    /* Animated tagline text */
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+        text-shadow:
+          0 0 5px #0ff,
+          0 0 10px #0ff,
+          0 0 20px #0ff,
+          0 0 40px #0ff;
+      }
+      20%, 22%, 24%, 55% {
+        opacity: 0.6;
+        text-shadow: none;
+      }
+    }
+    .flicker {
+      animation: flicker 3s infinite;
+    }
+    /* subtle code wave background */
+    .code-wave {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 200vw;
+      height: 200vh;
+      transform: translateX(-50%);
+      opacity: 0.05;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      filter: drop-shadow(0 0 2px #0ff);
+      animation: waveMove 30s linear infinite;
+    }
+    @keyframes waveMove {
+      0% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(10px);
+      }
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+    /* Music visualizer bars */
+    .bar {
+      width: 4px;
+      height: 20px;
+      margin: 0 1px;
+      background: #0ff;
+      animation: bounce 1.2s infinite ease-in-out;
+      border-radius: 2px;
+      filter: drop-shadow(0 0 4px #0ff);
+    }
+    .bar:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .bar:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+    .bar:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+    .bar:nth-child(4) {
+      animation-delay: 0.45s;
+    }
+    .bar:nth-child(5) {
+      animation-delay: 0.6s;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: scaleY(0.4);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scaleY(1.2);
+        opacity: 1;
+      }
+    }
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0ff;
+      border-radius: 4px;
+    }
+    /* Interactive tech tile hover */
+    .tech-tile {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
+    }
+    .tech-tile:hover,
+    .tech-tile:focus {
+      transform: translateY(-6px) scale(1.1);
+      box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+      outline: none;
+      cursor: pointer;
+    }
+    /* Animated section fade in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation-fill-mode: forwards;
+      animation-name: fadeInUp;
+      animation-duration: 1s;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-in.delay-1 {
+      animation-delay: 0.3s;
+    }
+    .fade-in.delay-2 {
+      animation-delay: 0.6s;
+    }
+    .fade-in.delay-3 {
+      animation-delay: 0.9s;
+    }
+    .fade-in.delay-4 {
+      animation-delay: 1.2s;
+    }
+    .fade-in.delay-5 {
+      animation-delay: 1.5s;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Link underline neon effect */
+    a.neon-link {
+      position: relative;
+      color: #0ff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    a.neon-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 100%;
+      height: 2px;
+      background: #0ff;
+      box-shadow: 0 0 8px #0ff;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+    }
+    a.neon-link:hover,
+    a.neon-link:focus {
+      color: #0ff;
+      outline: none;
+    }
+    a.neon-link:hover::after,
+    a.neon-link:focus::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    /* Form input focus neon */
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #0ff;
+      box-shadow: 0 0 8px #0ff;
+      background-color: #111;
+      color: #0ff;
+    }
+    /* Responsive grid for tech stack */
+    @media (min-width: 640px) {
+      .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+    }
+  </style>
+ </head>
+ <body class="relative overflow-x-hidden">
+  <!-- Background subtle code wave -->
+  <img alt="Subtle AI code wave background with neon cyan glowing code lines flowing horizontally" aria-hidden="true" class="code-wave select-none" height="1080" src="https://storage.googleapis.com/a1aa/image/88c42df8-107f-47e0-94b2-569c9ed45cd7.jpg" width="1920"/>
+  <header class="fixed top-0 left-0 w-full bg-black bg-opacity-70 backdrop-blur-md z-50 border-b border-cyan-600">
+   <nav class="max-w-7xl mx-auto px-6 sm:px-12 flex items-center justify-between h-16">
+    <a class="text-cyan-400 font-jetbrains-mono font-bold text-xl tracking-widest hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="#hero">
+     vhx
+    </a>
+    <ul class="hidden md:flex space-x-8 text-cyan-300 font-semibold tracking-wide">
+     <li>
+      <a class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="#whatido">
+       What I Do
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="#techstack">
+       Tech Stack
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="#research">
+       Research Publications
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="#contact">
+       Contact
+      </a>
+     </li>
+    </ul>
+    <button aria-label="Toggle menu" class="md:hidden text-cyan-400 hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" id="mobile-menu-button">
+     <i class="fas fa-bars fa-lg">
+     </i>
+    </button>
+   </nav>
+   <div class="hidden md:hidden bg-black bg-opacity-90 border-t border-cyan-600" id="mobile-menu">
+    <ul class="flex flex-col p-4 space-y-4 text-cyan-300 font-semibold tracking-wide">
+     <li>
+      <a class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded block" href="#whatido">
+       What I Do
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded block" href="#techstack">
+       Tech Stack
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded block" href="#research">
+       Research Publications
+      </a>
+     </li>
+     <li>
+      <a class="hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded block" href="#contact">
+       Contact
+      </a>
+     </li>
+    </ul>
+   </div>
+  </header>
+  <main class="pt-20 max-w-7xl mx-auto px-6 sm:px-12">
+   <!-- Hero Section -->
+   <section class="relative min-h-[80vh] flex flex-col justify-center items-center text-center overflow-visible" id="hero">
+    <h1 aria-label="Tagline: Engineering Conscious Machines. Composing Sonic Universes." class="text-4xl sm:text-6xl font-jetbrains-mono font-extrabold tracking-widest neon-text flicker max-w-5xl leading-tight">
+     Engineering Conscious Machines.
+     <br/>
+     Composing Sonic Universes.
+    </h1>
+    <p class="mt-6 text-cyan-300 font-semibold tracking-wider text-sm sm:text-lg max-w-3xl">
+     GenAI | RAG | MLOps | Infra Engineering + Musician | Composer | Guitarist
+    </p>
+    <div aria-hidden="true" class="absolute inset-0 flex justify-center items-center pointer-events-none select-none">
+     <img alt="Dynamic neon cyan and magenta waveforms representing AI data and music sound waves flowing horizontally with subtle glow" class="w-full h-full object-cover opacity-10" height="600" src="https://storage.googleapis.com/a1aa/image/60e2dcf0-ee9e-4a51-6846-1d63cffab226.jpg" width="1200"/>
+    </div>
+    <div class="mt-12 flex space-x-8 text-cyan-400 text-4xl justify-center w-full z-10 relative">
+     <a aria-label="GitHub" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://github.com/vaibhavhaswani" rel="noopener noreferrer" target="_blank" title="GitHub">
+      <i class="fab fa-github">
+      </i>
+     </a>
+     <a aria-label="LinkedIn" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://www.linkedin.com/in/vaibhav-haswani-2078b888/" rel="noopener noreferrer" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin">
+      </i>
+     </a>
+     <a aria-label="Medium" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://medium.com/@vaibhavhaswani" rel="noopener noreferrer" target="_blank" title="Medium">
+      <i class="fab fa-medium">
+      </i>
+     </a>
+     <a aria-label="Spotify" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://open.spotify.com/artist/7y6v6q6q6q6q6q6q6q6q6q" rel="noopener noreferrer" target="_blank" title="Spotify">
+      <i class="fab fa-spotify">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://instagram.com/vhx.offbeat" rel="noopener noreferrer" target="_blank" title="Instagram">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a aria-label="X (Twitter)" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://x.com/offbeatvhx" rel="noopener noreferrer" target="_blank" title="X (Twitter)">
+      <i class="fab fa-twitter">
+      </i>
+     </a>
+    </div>
+   </section>
+   <!-- What I Do Section -->
+   <section class="mt-24 grid grid-cols-1 md:grid-cols-2 gap-12 fade-in delay-1" id="whatido" tabindex="-1">
+    <div>
+     <h2 class="text-3xl font-jetbrains-mono font-bold neon-cyan mb-6 tracking-wide">
+      🧠 Tech Side
+     </h2>
+     <ul class="list-disc list-inside space-y-3 text-cyan-300 font-medium leading-relaxed text-sm sm:text-base">
+      <li>
+       Build GenAI &amp; RAG pipelines (FastAPI, LLaMA, GPT-4o, LangChain, Pinecone)
+      </li>
+      <li>
+       Design and deploy scalable AI APIs with Docker, Kubernetes, Redis
+      </li>
+      <li>
+       Automate AI systems with MLOps (TorchServe, cloud GPUs, quantization, CI/CD)
+      </li>
+      <li>
+       Privacy-aware classification, vector databases, inference infra (AWS/GCP)
+      </li>
+      <li>
+       Write about GenAI and AI infrastructure on Medium and Analytics Vidhya
+      </li>
+      <li>
+       GitHub Profile:
+       <a class="neon-link" href="https://github.com/vaibhavhaswani" rel="noopener noreferrer" target="_blank">
+        https://github.com/vaibhavhaswani
+       </a>
+      </li>
+     </ul>
+    </div>
+    <div>
+     <h2 class="text-3xl font-jetbrains-mono font-bold neon-magenta mb-6 tracking-wide">
+      🎵 Music Side
+     </h2>
+     <ul class="list-disc list-inside space-y-3 text-magenta-300 font-medium leading-relaxed text-sm sm:text-base">
+      <li>
+       Guitarist (Acoustic, Electric, Bass, Classical), Flutist, Learning Sitar
+      </li>
+      <li>
+       Music Composer and Live Performer
+      </li>
+      <li>
+       Spotify Artist:
+       <a class="neon-link" href="https://open.spotify.com/artist/7y6v6q6q6q6q6q6q6q6q6q" rel="noopener noreferrer" target="_blank">
+        🎧 Listen Here
+       </a>
+      </li>
+      <li>
+       Producing fusion music that blends classical and modern tones
+      </li>
+     </ul>
+    </div>
+   </section>
+   <!-- Tech Stack Section -->
+   <section class="mt-24 fade-in delay-2" id="techstack" tabindex="-1">
+    <h2 class="text-3xl font-jetbrains-mono font-bold neon-cyan mb-8 tracking-wide text-center">
+     Tech Stack
+    </h2>
+    <div class="grid tech-grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
+     <button aria-label="MLFlow" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      MLFlow
+     </button>
+     <button aria-label="GCP" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      GCP
+     </button>
+     <button aria-label="Kafka" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      Kafka
+     </button>
+     <button aria-label="Python" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      Python
+     </button>
+     <button aria-label="TypeScript" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      TypeScript
+     </button>
+     <button aria-label="FastAPI" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      FastAPI
+     </button>
+     <button aria-label="Docker" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      Docker
+     </button>
+     <button aria-label="LangChain" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      LangChain
+     </button>
+     <button aria-label="LLaMA" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      LLaMA
+     </button>
+     <button aria-label="GPT-4o" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      GPT-4o
+     </button>
+     <button aria-label="Redis" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      Redis
+     </button>
+     <button aria-label="FAISS" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      FAISS
+     </button>
+     <button aria-label="Pinecone" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      Pinecone
+     </button>
+     <button aria-label="TorchServe" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      TorchServe
+     </button>
+     <button aria-label="AWS" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      AWS
+     </button>
+     <button aria-label="GitHub Actions" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      GitHub Actions
+     </button>
+     <button aria-label="Kubernetes" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      Kubernetes
+     </button>
+     <button aria-label="Prometheus" class="tech-tile bg-[#001f29] border border-cyan-600 rounded-lg py-4 px-2 text-cyan-400 font-jetbrains-mono font-semibold text-center shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-400">
+      Prometheus
+     </button>
+    </div>
+   </section>
+   <!-- Research Publications Section -->
+   <section class="mt-24 fade-in delay-3" id="research" tabindex="-1">
+    <h2 class="text-3xl font-jetbrains-mono font-bold neon-magenta mb-8 tracking-wide text-center">
+     Research Publications
+    </h2>
+    <div class="max-w-4xl mx-auto space-y-8">
+     <article class="bg-[#11121a] border border-magenta-600 rounded-lg p-6 shadow-lg hover:shadow-magenta-500/50 transition-shadow duration-300">
+      <h3 class="text-xl font-semibold neon-magenta tracking-wide mb-2">
+       <a class="neon-link" href="https://aclanthology.org/2022.icon-main.20/" rel="noopener noreferrer" target="_blank" title="Methods to Optimize Wav2Vec with Language Model for Automatic Speech Recognition in Resource Constrained Environment">
+        Methods to Optimize Wav2Vec with Language Model for Automatic Speech Recognition in Resource Constrained Environment
+       </a>
+      </h3>
+      <p class="text-magenta-300 text-sm leading-relaxed">
+       Published research paper presented at ICON 2022 conference focusing on optimizing Wav2Vec with language models for ASR in resource constrained environments.
+      </p>
+      <time class="text-xs text-magenta-400 block mt-2" datetime="2022-12-01">
+       December 2022
+      </time>
+     </article>
+    </div>
+   </section>
+   <!-- Contact Section -->
+   <section class="mt-24 fade-in delay-4" id="contact" tabindex="-1">
+    <h2 class="text-3xl font-jetbrains-mono font-bold neon-cyan mb-8 tracking-wide text-center">
+     Contact
+    </h2>
+    <div class="max-w-3xl mx-auto bg-[#11121a] border border-cyan-600 rounded-lg p-8 shadow-lg">
+     <form action="mailto:vaibhavhaswani@gmail.com" class="space-y-6" enctype="text/plain" method="POST" novalidate="">
+      <div>
+       <label class="block text-cyan-300 font-semibold mb-2 tracking-wide" for="name">
+        Name
+       </label>
+       <input class="w-full bg-[#0a0a0f] border border-cyan-600 rounded-md py-3 px-4 text-cyan-300 placeholder-cyan-600 focus:ring-2 focus:ring-cyan-400" id="name" name="Name" placeholder="Your full name" required="" type="text"/>
+      </div>
+      <div>
+       <label class="block text-cyan-300 font-semibold mb-2 tracking-wide" for="email">
+        Email
+       </label>
+       <input class="w-full bg-[#0a0a0f] border border-cyan-600 rounded-md py-3 px-4 text-cyan-300 placeholder-cyan-600 focus:ring-2 focus:ring-cyan-400" id="email" name="Email" placeholder="you@example.com" required="" type="email"/>
+      </div>
+      <div>
+       <label class="block text-cyan-300 font-semibold mb-2 tracking-wide" for="message">
+        Message
+       </label>
+       <textarea class="w-full bg-[#0a0a0f] border border-cyan-600 rounded-md py-3 px-4 text-cyan-300 placeholder-cyan-600 focus:ring-2 focus:ring-cyan-400 resize-none" id="message" name="Message" placeholder="Write your message here..." required="" rows="5"></textarea>
+      </div>
+      <button class="w-full bg-cyan-600 hover:bg-cyan-700 focus:bg-cyan-700 text-black font-bold py-3 rounded-md tracking-wide transition-colors duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-400" type="submit">
+       Send Message
+      </button>
+     </form>
+     <div class="mt-8 flex justify-center space-x-8 text-cyan-400 text-2xl">
+      <a aria-label="GitHub" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://github.com/vaibhavhaswani" rel="noopener noreferrer" target="_blank">
+       <i class="fab fa-github">
+       </i>
+      </a>
+      <a aria-label="LinkedIn" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://linkedin.com/in/vaibhavhaswani" rel="noopener noreferrer" target="_blank">
+       <i class="fab fa-linkedin">
+       </i>
+      </a>
+      <a aria-label="Medium" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://medium.com/@vaibhavhaswani" rel="noopener noreferrer" target="_blank">
+       <i class="fab fa-medium">
+       </i>
+      </a>
+      <a aria-label="Spotify" class="hover:text-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded" href="https://open.spotify.com/artist/7y6v6q6q6q6q6q6q6q6q6q" rel="noopener noreferrer" target="_blank">
+       <i class="fab fa-spotify">
+       </i>
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <!-- Music Visualizer Easter Egg (only on desktop) -->
+  <div aria-hidden="true" class="hidden md:flex fixed bottom-6 left-1/2 transform -translate-x-1/2 space-x-1 z-40" id="music-visualizer">
+   <div class="bar bg-cyan-400">
+   </div>
+   <div class="bar bg-cyan-400">
+   </div>
+   <div class="bar bg-cyan-400">
+   </div>
+   <div class="bar bg-cyan-400">
+   </div>
+   <div class="bar bg-cyan-400">
+   </div>
+  </div>
+  <script>
+   // Mobile menu toggle
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Animate fade-in sections on scroll
+    const fadeIns = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    fadeIns.forEach((el) => observer.observe(el));
+  </script>
+ </body>
+</html>
